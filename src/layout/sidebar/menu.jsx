@@ -165,10 +165,13 @@ export const MENUITEMS = [
         Items:[
             {
                 title: 'Forms', icon: FileText, type: 'sub', menutitle:"Forms & Table",menucontent:"Ready to use froms & tables", active: false, children: [
+                    { title: 'Tambah Dashboard', type: 'link', path: `${process.env.PUBLIC_URL}/forms/tambahDashboard` },
+
             {
                 title: ' Form Controls ', type: 'sub', children: [
                     { title: 'Form Validation', type: 'link', path: `${process.env.PUBLIC_URL}/forms/form-validation` },
                     { title: 'Basic Input', type: 'link', path: `${process.env.PUBLIC_URL}/forms/baseInput` },
+
                     { title: 'Checkbox & Radio', type: 'link', path: `${process.env.PUBLIC_URL}/forms/radio-checkbox` },
                     { title: 'Input Groups', type: 'link', path: `${process.env.PUBLIC_URL}/forms/inputGroup` },
                     { title: 'Mega Option', type: 'link', path: `${process.env.PUBLIC_URL}/forms/megaOptions` },

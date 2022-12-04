@@ -41,6 +41,8 @@ const Logins = (props) => {
             localStorage.setItem('user', JSON.stringify(data));
             localStorage.setItem('token', data.token);
             localStorage.setItem('roleId', data.roleId);
+            localStorage.setItem('Name', data.name);
+
             window.location.href = `${process.env.PUBLIC_URL}/dashboard/default/`
             setValue(man)
 

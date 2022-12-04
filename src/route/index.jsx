@@ -71,6 +71,8 @@ import RaisedButton from '../components/buttons/raisedButton'
  // Forms
  import FormValidation from '../components/forms/form-control/form-validation'
  import BaseInput from '../components/forms/form-control/baseInput'
+ import TambahDashboard from '../components/forms/form-control/tambahDashboard'
+
  import InputGroup from '../components/forms/form-control/inputGroup'
  import MegaOption from '../components/forms/form-control/megaOption'
  import CheckboxandRadio from '../components/forms/form-control/checkboxandRadio'
@@ -266,6 +268,8 @@ export const routes = [
 
         { path:"/forms/form-validation/:layout", Component:FormValidation},
         { path:"/forms/baseInput/:layout", Component:BaseInput},
+        { path:"/forms/tambahDashboard/:layout", Component:TambahDashboard},
+
         { path:"/forms/inputGroup/:layout", Component:InputGroup},
         { path:"/forms/megaOptions/:layout", Component:MegaOption},
         { path:"/forms/radio-checkbox/:layout", Component:CheckboxandRadio},

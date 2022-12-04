@@ -2,8 +2,21 @@ import React, { Fragment } from 'react';
 import Breadcrumb from '../../layout/breadcrumb'
 import {Container,Row,Col,Card,CardHeader,Table} from "reactstrap";
 import { BasicTable,InverseTable,InverseTablePrimaryBackground,HoverableRows,ContextualClasses,TextBackgroundUtilities,TableHeadOptions,StripedRow,StripedRowInverseTable,Caption,ResponsiveTables,BreckpointSpecific } from "../../constant";
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 const Menu = () => {
+    const [users, setUser] = useState([])
+    useEffect(() => {
+        getUsers();
+    });
+
+    const getUsers = async() =>{
+        const response = await fetch('http://localhost:8080/api/v2/user/all');
+        const data = await response.json();
+
+       setUser(data.responses.user);
+        }
     return (
         <Fragment>
             <Breadcrumb parent="Tables" title="Basic Tables"/>
@@ -20,7 +33,7 @@ const Menu = () => {
                                     <thead>
                                         <tr>
                                             <th scope="col">{"#"}</th>
-                                            <th scope="col">{"First Name"}</th>
+                                            <th scope="col">{"Name"}</th>
                                             <th scope="col">{"Last Name"}</th>
                                             <th scope="col">{"Username"}</th>
                                             <th scope="col">{"Role"}</th>
@@ -28,46 +41,16 @@ const Menu = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">{"1"}</th>
-                                            <td>{"Alexander"}</td>
-                                            <td>{"Orton"}</td>
-                                            <td>{"@mdorton"}</td>
-                                            <td>{"Admin"}</td>
-                                            <td>{"USA"}</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">{"2"}</th>
-                                            <td>{"John Deo"}</td>
-                                            <td>{"Deo"}</td>
-                                            <td>{"@johndeo"}</td>
-                                            <td>{"User"}</td>
-                                            <td>{"USA"}</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">{"3"}</th>
-                                            <td>{"Randy Orton"}</td>
-                                            <td>{"the Bird"}</td>
-                                            <td>{"@twitter"}</td>
-                                            <td>{"admin"}</td>
-                                            <td>{"UK"}</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">{"4"}</th>
-                                            <td>{"Randy Mark"}</td>
-                                            <td>{"Ottandy"}</td>
-                                            <td>{"@mdothe"}</td>
-                                            <td>{"user"}</td>
-                                            <td>{"AUS"}</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">{"5"}</th>
-                                            <td>{"Ram Jacob"}</td>
-                                            <td>{"Thornton"}</td>
-                                            <td>{"@twitter"}</td>
-                                            <td>{"admin"}</td>
-                                            <td>{"IND"}</td>
-                                        </tr>
+                                        {users.map((user, index) => (
+                                               <tr key={user.id}>
+                                               <th scope="row">{index + 1}</th>
+                                               <td>{user.name}</td>
+                                               <td>{user.name}</td>
+                                               <td>{user.name}</td>
+                                               <td>{user.name}</td>
+                                               <td>{user.name}</td>
+                                           </tr>
+                                        ))}
                                     </tbody>
                                 </Table>
                             </div>
